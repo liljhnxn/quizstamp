@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none">
+  <!-- Outer Dark Academic Badge -->
+  <rect width="32" height="32" rx="7" fill="#15171C"/>
+  <rect x="1" y="1" width="30" height="30" rx="6" fill="#20232B" stroke="#D4B06A" stroke-width="1.5" stroke-opacity="0.8"/>
+  
+  <!-- Graduation Cap Icon in Gold (#D4B06A) -->
+  <g transform="translate(4, 5)" stroke="#D4B06A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Diamond Cap Top -->
+    <path d="M12 2L1 7.5L12 13L23 7.5L12 2Z" fill="#D4B06A" fill-opacity="0.25"/>
+    <!-- Cap Under-arch -->
+    <path d="M4 11V16.5C4 16.5 7.5 19.5 12 19.5C16.5 19.5 20 16.5 20 16.5V11"/>
+    <!-- Tassel -->
+    <path d="M20.5 8V14"/>
+    <circle cx="20.5" cy="15" r="0.75" fill="#D4B06A"/>
+  </g>
+</svg>
