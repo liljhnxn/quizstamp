@@ -40,7 +40,8 @@ async function main() {
     fs.mkdirSync(configDir, { recursive: true });
   }
 
-  const contractArtifact = await import("../artifacts/contracts/QuizStamp.sol/QuizStamp.json");
+  const artifactPath = path.join(process.cwd(), "artifacts/contracts/QuizStamp.sol/QuizStamp.json");
+  const contractArtifact = JSON.parse(fs.readFileSync(artifactPath, "utf-8"));
   const contractInfo = {
     address: contractAddress,
     chainId: 968,
