@@ -102,11 +102,11 @@ export function StatsCard({ onRefreshTrigger }: StatsCardProps) {
           {contractAddress && (
             <>
               <a
-                href={`https://scan.botchain.ai/address/${contractAddress}`}
+                href="https://scan.botchain.ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-2.5 py-1 rounded bg-page border border-borderDark text-[11px] text-subText hover:text-accent hover:border-accent flex items-center gap-1.5 transition-colors group"
-                title="View contract on BotchainScan"
+                title="View on BotchainScan (BOT Chain Explorer)"
               >
                 <div className="w-3.5 h-3.5 rounded overflow-hidden relative shrink-0">
                   <Image

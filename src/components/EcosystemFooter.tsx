@@ -6,10 +6,7 @@ import { ExternalLink, ShieldCheck, Globe, Search } from "lucide-react";
 import { getQuizStampAddress } from "@/config/contract";
 
 export function EcosystemFooter() {
-  const contractAddress = getQuizStampAddress();
-  const contractExplorerUrl = contractAddress
-    ? `https://scan.botchain.ai/address/${contractAddress}#code`
-    : "https://scan.botchain.ai";
+  const contractExplorerUrl = "https://scan.botchain.ai/address/0xA240ab0065Bdc9E5A1271318166Dc5d17e5c2100#code";
 
   return (
     <footer className="w-full mt-16 border-t border-borderDark/80 bg-panel/60 backdrop-blur-md">

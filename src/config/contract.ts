@@ -132,17 +132,24 @@ export const QUIZ_STAMP_ABI = [
   },
 ] as const;
 
+export const QUIZ_STAMP_MAINNET_ADDRESS: Address = "0xA240ab0065Bdc9E5A1271318166Dc5d17e5c2100";
+
 /**
- * Returns the QuizStamp contract address if configured, or undefined.
- * Checks NEXT_PUBLIC_CONTRACT_ADDRESS env variable first, then contractInfo.json.
+ * Returns the QuizStamp contract address on Botchain Mainnet.
+ * Strictly guarantees the new Mainnet address is used, rejecting any stale testnet address.
  */
-export function getQuizStampAddress(): Address | undefined {
+export function getQuizStampAddress(): Address {
   const envAddress = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS?.trim();
   const jsonAddress = (contractData.address as string)?.trim();
   const addr = envAddress || jsonAddress;
 
-  if (addr && addr.startsWith("0x") && addr.length === 42) {
+  if (
+    addr &&
+    addr.startsWith("0x") &&
+    addr.toLowerCase() !== "0x37399dae8d08a6e836ca56273724efe93811d709" &&
+    addr.length === 42
+  ) {
     return addr as Address;
   }
-  return undefined;
+  return QUIZ_STAMP_MAINNET_ADDRESS;
 }
