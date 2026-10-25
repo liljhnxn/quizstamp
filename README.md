@@ -1,6 +1,5 @@
 # QuizStamp — Web3 Quiz Assessment App
-
-QuizStamp is an educational decentralized application (dApp) built on the **Botchain Testnet**. It enables users to test their fundamental knowledge in computing and web technologies, view their score, and stamp their verified results permanently onto the blockchain through a dedicated Solidity smart contract.
+QuizStamp is an educational decentralized application (dApp) built on **Botchain Mainnet**. It enables users to test their fundamental knowledge in computing and web technologies, view their score, and stamp their verified results permanently onto the blockchain through a dedicated Solidity smart contract.
 
 ---
 
@@ -8,10 +7,10 @@ QuizStamp is an educational decentralized application (dApp) built on the **Botc
 
 - **Interactive Quiz**: 5 multiple-choice questions focusing on computing and web development fundamentals (HTML, CSS, CPU, JavaScript, URLs).
 - **Client-Side Assessment**: Questions are displayed sequentially, allowing navigation, validation, and real-time score calculation out of 5.
-- **Web3 Wallet Integration**: Connect browser-injected wallets (such as MetaMask or OKX Wallet) to Botchain Testnet (Chain ID `968`).
-- **On-Chain Score Stamping**: Record quiz submissions directly on Botchain Testnet via the `QuizStamp` smart contract.
+- **Web3 Wallet Integration**: Connect browser-injected wallets (such as MetaMask or OKX Wallet) to Botchain Mainnet (Chain ID `677`).
+- **On-Chain Score Stamping**: Record quiz submissions directly on Botchain Mainnet via the `QuizStamp` smart contract.
 - **On-Chain Statistics**: Live reading of personal best score, wallet submission count, and global submission count across all users.
-- **Network Awareness**: Automatic network detection with one-click switching to Botchain Testnet.
+- **Network Awareness**: Automatic network detection with one-click switching to Botchain Mainnet.
 - **Dark Academic Design**: Focused, calm aesthetic using curated color tokens:
   - Page Background: `#15171C`
   - Cards & Panels: `#20232B`
@@ -33,17 +32,17 @@ QuizStamp is an educational decentralized application (dApp) built on the **Botc
 
 ---
 
-## 3. Botchain Testnet Configuration
+## 3. Botchain Mainnet Configuration
 
 | Parameter | Value |
 | :--- | :--- |
-| **Network Name** | Botchain Testnet |
-| **Chain ID** | `968` |
-| **RPC URL** | `https://rpc.bohr.life` |
-| **Native Currency** | `BOT` |
-| **Deployed Address** | `0x37399DAe8D08A6E836CA56273724eFE93811D709` |
-| **Verified Contract** | [View Verified Contract on BohrScan](https://scan.bohr.life/address/0x37399DAe8D08A6E836CA56273724eFE93811D709#code) |
-| **Block Explorer** | [https://scan.bohr.life](https://scan.bohr.life) |
+| **Network Name** | Botchain Mainnet |
+| **Chain ID** | `677` |
+| **RPC URL** | `https://rpc.botchain.ai` |
+| **Native Currency** | `BOT` (Total Supply: 150 Million) |
+| **Deployed Address** | `0xA240ab0065Bdc9E5A1271318166Dc5d17e5c2100` |
+| **Verified Contract** | [View Verified Contract on BotchainScan](https://scan.botchain.ai/address/0xA240ab0065Bdc9E5A1271318166Dc5d17e5c2100#code) |
+| **Block Explorer** | [https://scan.botchain.ai](https://scan.botchain.ai) |
 
 ---
 
@@ -105,7 +104,7 @@ The test suite verifies:
 
 ---
 
-## 7. Deploying to Botchain Testnet
+## 7. Deploying to Botchain Mainnet
 
 ### Step 1: Configure Environment Variables
 Copy `.env.example` to `.env`:
@@ -116,26 +115,26 @@ Open `.env` and configure your deployment credentials securely:
 ```env
 # DO NOT COMMIT YOUR REAL PRIVATE KEY TO SOURCE CONTROL
 PRIVATE_KEY=your_wallet_private_key_without_0x_prefix
-BOTCHAIN_RPC_URL=https://rpc.bohr.life
+BOTCHAIN_RPC_URL=https://rpc.botchain.ai
 ```
 
-> **Security Note:** Never commit your `.env` file or disclose your private key. Ensure your deployer wallet holds a small amount of testnet `BOT` from the Botchain faucet.
+> **Security Note:** Never commit your `.env` file or disclose your private key. Ensure your deployer wallet holds a small amount of `BOT` for gas.
 
 ### Step 2: Execute Deployment Script
-Run the automated deployment script targeting Botchain Testnet:
+Run the automated deployment script targeting Botchain Mainnet:
 ```bash
 npm run deploy:botchain
 ```
 The deployment script will:
-1. Connect to Botchain Testnet at `https://rpc.bohr.life`.
-2. Deploy the `QuizStamp.sol` smart contract.
-3. Log the deployed contract address and transaction hash with BohrScan explorer links.
-4. Automatically update `src/config/contractInfo.json` with the deployed address and ABI.
+1. Connect to Botchain Mainnet at `https://rpc.botchain.ai`.
+2. Deploy the `QuizStamp.sol` smart contract using the minimal gas price floor (20 gwei).
+3. Log the deployed contract address and transaction hash with BotchainScan explorer links.
+4. Automatically update `src/config/contractInfo.json` and `.env` with the deployed address and ABI.
 
 ### Step 3: Verify Frontend Configuration
 You can also set the contract address directly in `.env.local` for the Next.js app:
 ```env
-NEXT_PUBLIC_CONTRACT_ADDRESS=0xYourDeployedContractAddressHere
+NEXT_PUBLIC_CONTRACT_ADDRESS=0xA240ab0065Bdc9E5A1271318166Dc5d17e5c2100
 ```
 
 ---
@@ -150,7 +149,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 - You can play the quiz immediately without connecting a wallet.
-- Connect MetaMask or your preferred browser wallet to save your score on Botchain Testnet and view your on-chain statistics.
+- Connect MetaMask or your preferred browser wallet to save your score on Botchain Mainnet and view your on-chain statistics.
 
 ---
 
@@ -160,21 +159,19 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 2. Sign in to [Vercel](https://vercel.com) and click **"Add New Project"**.
 3. Import your QuizStamp repository.
 4. Under **Environment Variables**, add:
-   - `NEXT_PUBLIC_CONTRACT_ADDRESS`: The deployed QuizStamp contract address on Botchain Testnet.
-   - `NEXT_PUBLIC_BOTCHAIN_RPC_URL`: `https://rpc.bohr.life`
+   - `NEXT_PUBLIC_CONTRACT_ADDRESS`: `0xA240ab0065Bdc9E5A1271318166Dc5d17e5c2100`
+   - `NEXT_PUBLIC_BOTCHAIN_RPC_URL`: `https://rpc.botchain.ai`
 5. Click **Deploy**. Vercel will build and deploy your Next.js application.
 
 ---
-
-## 10. Status Checklist
 
 | Step | Status | Notes |
 | :--- | :---: | :--- |
 | Smart Contract (`QuizStamp.sol`) | **Completed** | Clean Solidity with validation, counters, mappings & events |
 | Contract Tests (`QuizStamp.test.ts`) | **Completed** | 10/10 test coverage across all requirements |
-| Deployment Script (`scripts/deploy.ts`) | **Completed** | Deploys & auto-updates `contractInfo.json` |
+| Deployment Script (`scripts/deploy.ts`) | **Completed** | Deploys & auto-updates `contractInfo.json` & `.env` |
 | Frontend Components & Wagmi Setup | **Completed** | Dark academic design, responsive, wagmi v2 hooks |
-| Contract Deployment | **Completed** | Deployed to `0x37399DAe8D08A6E836CA56273724eFE93811D709` |
-| Contract Verification | **Completed** | Verified source code on BohrScan |
+| Contract Deployment | **Completed** | Deployed to `0xA240ab0065Bdc9E5A1271318166Dc5d17e5c2100` on Botchain Mainnet |
+| Contract Verification | **Completed** | Verified source code on BotchainScan |
 | Set Contract Address | **Completed** | Configured in `contractInfo.json` & `.env` |
 | Vercel Deployment | **Manual Action** | Deploy to Vercel following Section 9 instructions |

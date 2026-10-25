@@ -10,7 +10,7 @@
     "compile": "hardhat compile",
     "test": "hardhat test",
     "deploy:botchain": "hardhat run scripts/deploy.ts --network botchain",
-    "verify:botchain": "ts-node scripts/verifyBohr.ts"
+    "verify:botchain": "ts-node scripts/verifyBotchain.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.67.2",

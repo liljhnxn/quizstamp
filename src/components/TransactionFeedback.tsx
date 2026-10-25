@@ -22,7 +22,7 @@ export function TransactionFeedback({
     return null;
   }
 
-  const explorerUrl = hash ? `https://scan.bohr.life/tx/${hash}` : null;
+  const explorerUrl = hash ? `https://scan.botchain.ai/tx/${hash}` : null;
 
   return (
     <div className="mt-6 p-4 rounded-xl border transition-all duration-300">
@@ -44,7 +44,7 @@ export function TransactionFeedback({
             <Loader2 className="w-5 h-5 animate-spin shrink-0" />
             <div className="text-xs">
               <p className="font-semibold text-mainText">Saving Score On-Chain</p>
-              <p className="text-subText">Waiting for Botchain Testnet block confirmation...</p>
+              <p className="text-subText">Waiting for Botchain Mainnet block confirmation...</p>
             </div>
           </div>
           {explorerUrl && (
@@ -63,12 +63,12 @@ export function TransactionFeedback({
 
       {/* 3. Transaction Succeeded */}
       {isSuccess && (
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-correct bg-correct/5 border-correct/30 p-3 rounded-lg">
+        <div className="flex flex-col sm:flex-row items-start sm:center justify-between gap-3 text-correct bg-correct/5 border-correct/30 p-3 rounded-lg">
           <div className="flex items-center gap-3">
             <CheckCircle2 className="w-5 h-5 text-correct shrink-0" />
             <div className="text-xs">
               <p className="font-semibold text-correct">Score Successfully Stamped On-Chain!</p>
-              <p className="text-subText">Your result has been permanently recorded on Botchain Testnet.</p>
+              <p className="text-subText">Your result has been permanently recorded on Botchain Mainnet.</p>
             </div>
           </div>
           {explorerUrl && (

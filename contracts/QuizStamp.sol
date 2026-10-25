@@ -3,7 +3,7 @@ pragma solidity ^0.8.20;
 
 /**
  * @title QuizStamp
- * @notice A simple educational smart contract allowing users to record their quiz scores on Botchain Testnet.
+ * @notice A simple educational smart contract allowing users to record their quiz scores on Botchain Mainnet.
  * @dev Note: Quiz answers are validated in the frontend browser before submission.
  *      The contract verifies that scores are within the valid range [0, 5], but cannot
  *      independently verify whether the questions were answered honestly off-chain.

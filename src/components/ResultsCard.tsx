@@ -5,7 +5,7 @@ import { useAccount, useConnect, useWriteContract, useWaitForTransactionReceipt,
 import { Award, RotateCcw, ShieldCheck, Wallet, AlertTriangle, CheckCircle2, XCircle } from "lucide-react";
 import { QUIZ_QUESTIONS } from "@/data/quizQuestions";
 import { QUIZ_STAMP_ABI, getQuizStampAddress } from "@/config/contract";
-import { botchainTestnet } from "@/config/botchain";
+import { botchain } from "@/config/botchain";
 import { TransactionFeedback } from "./TransactionFeedback";
 
 interface ResultsCardProps {
@@ -29,7 +29,7 @@ export function ResultsCard({
   const [showReview, setShowReview] = useState<boolean>(false);
 
   const contractAddress = getQuizStampAddress();
-  const isWrongNetwork = isConnected && chainId !== botchainTestnet.id;
+  const isWrongNetwork = isConnected && chainId !== botchain.id;
 
   // Wagmi contract write
   const {
@@ -70,7 +70,7 @@ export function ResultsCard({
     }
 
     if (isWrongNetwork) {
-      switchChain({ chainId: botchainTestnet.id });
+      switchChain({ chainId: botchain.id });
       return;
     }
 
@@ -143,11 +143,11 @@ export function ResultsCard({
         ) : isWrongNetwork ? (
           <button
             type="button"
-            onClick={() => switchChain({ chainId: botchainTestnet.id })}
+            onClick={() => switchChain({ chainId: botchain.id })}
             className="w-full sm:w-auto px-6 py-3 rounded-lg bg-incorrect/15 border border-incorrect/40 text-incorrect font-semibold text-xs tracking-wide uppercase hover:bg-incorrect/25 transition-colors flex items-center justify-center gap-2"
           >
             <AlertTriangle className="w-4 h-4" />
-            <span>Switch to Botchain to Save</span>
+            <span>Switch to Botchain Mainnet to Save</span>
           </button>
         ) : (
           <button
@@ -193,7 +193,7 @@ export function ResultsCard({
       {/* Contract Warning if not deployed */}
       {!contractAddress && (
         <p className="text-center text-xs text-subText mt-3">
-          (Contract address not yet configured. Deploy contract to Botchain Testnet to enable on-chain saves.)
+          (Contract address not yet configured. Deploy contract to Botchain Mainnet to enable on-chain saves.)
         </p>
       )}
 

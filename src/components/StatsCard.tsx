@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { useAccount, useReadContract } from "wagmi";
-import { Award, Layers, Globe2, RefreshCw, AlertCircle, Wallet } from "lucide-react";
+import { Award, Layers, Globe2, RefreshCw, AlertCircle, Wallet, ExternalLink } from "lucide-react";
 import { QUIZ_STAMP_ABI, getQuizStampAddress } from "@/config/contract";
 
 interface StatsCardProps {
@@ -87,26 +88,49 @@ export function StatsCard({ onRefreshTrigger }: StatsCardProps) {
 
   return (
     <div className="bg-panel border border-borderDark rounded-xl p-6 shadow-md">
-      <div className="flex items-center justify-between pb-4 border-b border-borderDark mb-6">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-borderDark mb-6 gap-3">
         <div>
           <h2 className="text-lg font-semibold text-mainText flex items-center gap-2">
             <Award className="w-5 h-5 text-accent" />
             <span>On-Chain Statistics</span>
           </h2>
           <p className="text-xs text-subText">
-            Verified data fetched directly from Botchain Testnet
+            Verified data fetched directly from Botchain Mainnet
           </p>
         </div>
-        {contractAddress && (
-          <button
-            onClick={handleRefreshAll}
-            className="p-1.5 rounded-md hover:bg-page border border-transparent hover:border-borderDark text-subText hover:text-mainText transition-colors"
-            title="Refresh On-Chain Stats"
-            aria-label="Refresh On-Chain Stats"
-          >
-            <RefreshCw className="w-4 h-4" />
-          </button>
-        )}
+        <div className="flex items-center gap-2">
+          {contractAddress && (
+            <>
+              <a
+                href={`https://scan.botchain.ai/address/${contractAddress}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-2.5 py-1 rounded bg-page border border-borderDark text-[11px] text-subText hover:text-accent hover:border-accent flex items-center gap-1.5 transition-colors group"
+                title="View contract on BotchainScan"
+              >
+                <div className="w-3.5 h-3.5 rounded overflow-hidden relative shrink-0">
+                  <Image
+                    src="/botchain-logo.png"
+                    alt="BOT Chain Logo"
+                    width={14}
+                    height={14}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <span>View on BotchainScan</span>
+                <ExternalLink className="w-3 h-3 text-subText group-hover:text-accent" />
+              </a>
+              <button
+                onClick={handleRefreshAll}
+                className="p-1.5 rounded-md hover:bg-page border border-transparent hover:border-borderDark text-subText hover:text-mainText transition-colors"
+                title="Refresh On-Chain Stats"
+                aria-label="Refresh On-Chain Stats"
+              >
+                <RefreshCw className="w-4 h-4" />
+              </button>
+            </>
+          )}
+        </div>
       </div>
 
       {!contractAddress && (
@@ -115,7 +139,7 @@ export function StatsCard({ onRefreshTrigger }: StatsCardProps) {
           <div>
             <p className="font-semibold text-mainText mb-1">Contract Deployment Pending</p>
             <p>
-              Smart contract is not yet deployed or configured. After deploying to Botchain Testnet, add the address to{" "}
+              Smart contract is not yet deployed or configured. After deploying to Botchain Mainnet, add the address to{" "}
               <code className="text-accent bg-page/70 px-1 py-0.5 rounded">contractInfo.json</code> or{" "}
               <code className="text-accent bg-page/70 px-1 py-0.5 rounded">NEXT_PUBLIC_CONTRACT_ADDRESS</code>.
             </p>

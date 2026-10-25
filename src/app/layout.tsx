@@ -15,10 +15,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "QuizStamp — Web3 Educational Assessment on Botchain Testnet",
+  title: "QuizStamp — Web3 Educational Assessment on Botchain Mainnet",
   description:
-    "Answer technology and computing questions, view your score, and stamp your verified result directly onto the Botchain Testnet blockchain.",
-  keywords: ["QuizStamp", "Web3", "Botchain Testnet", "Solidity", "Blockchain Quiz", "Crypto"],
+    "Answer technology and computing questions, view your score, and stamp your verified result directly onto the Botchain Mainnet blockchain.",
+  keywords: ["QuizStamp", "Web3", "Botchain Mainnet", "Solidity", "Blockchain Quiz", "Crypto"],
   authors: [{ name: "QuizStamp Team" }],
 };
 

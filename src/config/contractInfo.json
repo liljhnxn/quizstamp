@@ -1,7 +1,7 @@
 {
-  "address": "0x37399DAe8D08A6E836CA56273724eFE93811D709",
-  "chainId": 968,
-  "network": "Botchain Testnet",
+  "address": "0xA240ab0065Bdc9E5A1271318166Dc5d17e5c2100",
+  "chainId": 677,
+  "network": "Botchain Mainnet",
   "abi": [
     {
       "anonymous": false,

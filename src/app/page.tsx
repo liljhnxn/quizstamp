@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { QuizCard } from "@/components/QuizCard";
 import { ResultsCard } from "@/components/ResultsCard";
 import { StatsCard } from "@/components/StatsCard";
+import { EcosystemFooter } from "@/components/EcosystemFooter";
 
 export default function Home() {
   const [isCompleted, setIsCompleted] = useState<boolean>(false);
@@ -52,26 +53,10 @@ export default function Home() {
         <section aria-label="On-Chain Statistics">
           <StatsCard onRefreshTrigger={statsRefreshKey} />
         </section>
-
-        {/* Educational / Academic Footer Notice */}
-        <footer className="text-center text-xs text-subText py-6 border-t border-borderDark/40">
-          <p>
-            QuizStamp is an educational decentralized application running on{" "}
-            <a
-              href="https://scan.bohr.life"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-accent hover:underline font-medium"
-            >
-              Botchain Testnet
-            </a>{" "}
-            (Chain ID: 968).
-          </p>
-          <p className="mt-1 text-subText/80">
-            Scores are evaluated in the browser and permanently recorded on-chain via smart contract.
-          </p>
-        </footer>
       </main>
+
+      {/* Official BOT Chain Ecosystem Footer */}
+      <EcosystemFooter />
     </div>
   );
 }
